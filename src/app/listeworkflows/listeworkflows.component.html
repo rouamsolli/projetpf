@@ -1,0 +1,63 @@
+<div>
+    
+    <mat-toolbar color="primary"  style="height: 80px;">
+    
+        <span><mat-icon>rebase_edit</mat-icon> Paramétrage du workflow</span>
+    
+    </mat-toolbar>
+
+
+    <div class="title-container">
+        <h2>Liste des workflows</h2>
+        <!--<i class="material-icons" style="transform: translateX(-1600px);margin-top: 60px;">work</i> -->
+        
+    </div>
+<div class="mat-elevation-z8">
+    <div class="content-container">
+        <form class="filter-container">
+            <mat-form-field class="exemple-full-width">
+                <input (keyup)="applyFilter($event)" matInput placeholder="Filter">
+            </mat-form-field>
+        </form>
+        <div>
+        <button class="create-button" (click)="openDialog()">
+            <i class="material-icons">add_circle</i>
+            Nouveau workflow
+        </button>
+        <div class="table-container">
+            <mat-table [dataSource]="dataSource" matSort>
+                <!-- Titre du workflow -->
+            <ng-container matColumnDef="nom">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Nom </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                    <a (click)="navigateToComponent(element.id)">{{ element.nom }}</a>
+                </mat-cell>
+            </ng-container>
+
+
+                <!-- Description du workflow -->
+                <ng-container matColumnDef="description">
+                    <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
+                </ng-container>
+
+                <!-- Date de création -->
+                <ng-container matColumnDef="date_creation">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Date de création </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.date_creation | date:'dd/MM/yyyy'}} </mat-cell>
+                </ng-container>
+
+                <!-- Date de dernière modification -->
+                <ng-container matColumnDef="date_modification">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Date de dernière modification </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.date_modification | date:'dd/MM/yyyy'}} </mat-cell>
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+        </div>
+    </div>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>
+</div>

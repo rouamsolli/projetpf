@@ -1,0 +1,79 @@
+.mat-elevation-z8 {
+    border: 0px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: #fff;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    transform: translateY(60px);
+}
+
+.title-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.title-container h2 {
+    margin: 0;
+    margin-left: 10px;
+    font-size: 24px;
+    color: #333;
+    transform: translate(60px,30px);
+   
+}
+
+.filter-container mat-form-field {
+    width: 300px;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+mat-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+mat-header-row,
+mat-row {
+    border-bottom: 1px solid #ddd;
+}
+
+mat-cell,
+mat-header-cell {
+    padding: 10px;
+    text-align: left;
+}
+.filter-container {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.example-full-width {
+    width: 50%;
+}
+.create-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 44px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transform: translate(1369px, -150px);
+    position:relative;
+}
+
+.create-button:hover {
+    background-color: #0056b3;
+}
+
+.create-button i {
+    margin-right: 5px;
+}

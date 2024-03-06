@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+@import '../node_modules/@syncfusion/ej2-material-theme/styles/material.css';
+/* You can add global styles to this file, and also import other style files */
+@import '../node_modules/@syncfusion/ej2-angular-diagrams/styles/material.css';
+@import "node_modules/@syncfusion/ej2-navigations/styles/material.css";
+
+@import url("bpmn-js-properties-panel/dist/assets/properties-panel.css");
+@import url("bpmn-js-properties-panel/dist/assets/element-templates.css");
+@import "~bootstrap/dist/css/bootstrap.css"
+
+.palette-section {
+    width: 15%;
+    height: 100%;
+    float: left;
+    transform: translateY(50px);
+}
+
+.diagram-section {
+    width: 85%;
+    height: 100%;
+    float: right;
+}
+html, body { height:100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: rgb(255, 255, 255);}

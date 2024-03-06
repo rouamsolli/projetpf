@@ -1,0 +1,38 @@
+<h2 mat-dialog-title>Nouveau Workflow</h2>
+<mat-dialog-content class="mat-typography">
+    <form [formGroup]="workflowForm" class="example-form">
+        <mat-form-field class="example-full-width">
+            <a [routerLink]="['']" matTooltip="Aller à la page de destination"></a>
+            <mat-label>Nom</mat-label>
+            <input type="name" matInput formControlName="nom" placeholder="">
+            <mat-error *ngIf="nameFormControl.hasError('required')">Name is <strong>required</strong></mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Description</mat-label>
+            <textarea matInput formControlName="description" placeholder="Description"></textarea>
+            <mat-error *ngIf="descriptionFormControl.hasError('required')">Description is
+                <strong>required</strong></mat-error>
+        </mat-form-field>
+    <mat-form-field color="accent" style="margin-bottom: 20px; width: 300px; margin-left: 100px;">
+        <mat-label>Date de création</mat-label>
+        <input matInput [matDatepicker]="picker1" formControlName="dateCreation">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+    </mat-form-field>
+    
+    <mat-form-field color="accent" style="margin-left: 20px; width: 300px;">
+        <mat-label>Date de dernière modification</mat-label>
+        <input matInput [matDatepicker]="picker2" formControlName="dateModification">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2 color="primary"></mat-datepicker>
+    </mat-form-field>
+
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <!-- Utilisez la fonction createWorkflow() lorsque le bouton "Create" est cliqué -->
+    <button mat-button (click)="createWorkflow()" [disabled]="!workflowForm.valid" cdkFocusInitial>Create</button>
+</mat-dialog-actions>

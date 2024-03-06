@@ -1,0 +1,58 @@
+<div class="control-section">
+    <div class="palette-section" style="width: 20%; margin-top: 50px;">
+        <button class="e-btn" ejs-button (click)="onSave()">Save</button>
+        <button class="e-btn" ejs-button (click)="onLoad()">Load</button>
+        <ejs-symbolpalette height="850px" [palettes]="symbolPalette" [symbolHeight]="50" [symbolWidth]="50"
+            (paletteExpanding)="paletteExpandingAction($event)" [enableSearch]=true>
+
+        </ejs-symbolpalette>
+    </div>
+    <div class="diagram-section" style="margin-top: -860px;">
+
+        <ejs-diagram #diagram width="100%" height="850px" [getNodeDefaults]="defaultNodeValues">
+
+            <e-nodes>
+
+                <e-node id='node1' [offsetY]=100 [shape]="terminatorShape">
+                    <e-node-annotations>
+                        <e-node-annotation content="Start"></e-node-annotation>
+                    </e-node-annotations>
+                </e-node>
+                <e-node id='node2' [offsetY]=200 [shape]="processShape">
+                    <e-node-annotations>
+                        <e-node-annotation content="envoi un email"></e-node-annotation>
+                    </e-node-annotations>
+                </e-node>
+                <e-node id='node3' [offsetY]=300 [shape]="terminatorShape">
+                    <e-node-annotations>
+                        <e-node-annotation content="Fin"></e-node-annotation>
+                    </e-node-annotations>
+                </e-node>
+                <e-node id='node4' [offsetY]=300 [shape]="processShape">
+                    <e-node-annotations>
+                        <e-node-annotation content="Changement propriété"></e-node-annotation>
+                    </e-node-annotations>
+                </e-node>
+                <e-node id='node5' [offsetY]=300 [shape]="processShape">
+                    <e-node-annotations>
+                        <e-node-annotation content="Changement propriété"></e-node-annotation>
+                    </e-node-annotations>
+                </e-node>
+                <e-node id='node6' [offsetY]=300 [shape]="DecisionShape">
+                    <e-node-annotations>
+                        <e-node-annotation content="condition"></e-node-annotation>
+                    </e-node-annotations>
+                </e-node>
+
+            </e-nodes>
+            <e-connectors>
+                <e-connector sourceID="node1" targetID="node6"></e-connector>
+                <e-connector sourceID="node6" targetID="node2"></e-connector>
+                <e-connector sourceID="node6" targetID="node4"></e-connector>
+                <e-connector sourceID="node2" targetID="node5"></e-connector>
+                <e-connector sourceID="node5" targetID="node3"></e-connector>
+                <e-connector sourceID="node4" targetID="node3"></e-connector>
+            </e-connectors>
+        </ejs-diagram>
+    </div>
+</div>
